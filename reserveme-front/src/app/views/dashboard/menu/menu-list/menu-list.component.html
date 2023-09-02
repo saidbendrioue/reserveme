@@ -1,0 +1,17 @@
+<app-header [title]="(currentRestaurant?.name??'' )+ ' > Menus'"></app-header>
+<p-menu #menu [model]="items" [popup]="true"></p-menu>
+<p class="dataview-title"></p>
+<p-dataView [value]="menus" [paginator]="true" [rows]="10">
+    <ng-template let-item pTemplate="listItem">
+        <div class="dataview-item">
+            <div class="d-flex justify-content-between">
+                <h2><strong>{{ item.name }}</strong></h2>
+                <p-button icon="pi pi-angle-down" styleClass="p-button-rounded p-button-secondary p-button-text"
+                    (click)="menu.toggle($event);this.clickedMenuId = item.id;"></p-button>
+            </div>
+            <img [src]="getImageUrl(item)" alt="{{ item.name }}"  (click)="goToMenuItemList(item)"/>
+            <p>{{ item.description }}</p>
+        </div>
+    </ng-template>
+</p-dataView>
+<button pButton icon="pi pi-plus" class="p-button-rounded add-item-button" (click)="addMenu()"></button>

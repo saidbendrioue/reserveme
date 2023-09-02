@@ -1,0 +1,27 @@
+<div class="p-fluid form-container">
+
+  <h2>Create Menu Item</h2>
+
+    <div class="p-field">
+      <label for="name">Name</label>
+      <input pInputText id="name" [(ngModel)]="menuItem.dishName" />
+    </div>
+
+    <div class="p-field">
+      <label for="name">Price</label>
+      <p-inputNumber [(ngModel)]="menuItem.price" mode="currency" inputId="currency-france" currency="EUR" locale="fr-FR"> </p-inputNumber>
+    </div>
+    
+    <div class="p-field">
+      <label for="description">Description</label>
+      <textarea pInputTextarea id="description" [(ngModel)]="menuItem.description"></textarea>
+    </div>
+    
+    <div class="p-field">
+      <label for="image">Image</label>
+      <p-fileUpload mode="basic" accept="image/*" chooseLabel="Choose File" (onSelect)="onFileSelect($event)"></p-fileUpload>
+    </div>
+    
+    <button pButton type="button" label="Create" (click)="createMenuItem()" [disabled]="isCreating"></button>
+  </div>
+  

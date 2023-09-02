@@ -1,0 +1,26 @@
+<div class="p-fluid form-container">
+
+  <h3>Create Menu</h3>
+
+    <div class="p-field">
+      <label for="name">Name</label>
+      <input pInputText id="name" [(ngModel)]="menu.name" />
+    </div>
+    
+    <div class="p-field">
+      <label for="description">Description</label>
+      <textarea pInputTextarea id="description" [(ngModel)]="menu.description"></textarea>
+    </div>
+    <div class="p-field">
+      <div *ngIf="imageFile">
+          <img [src]="imageDataUrl" alt="Selected Image" class="p-2" style="width: 400px;"/>
+      </div>
+    </div>
+    <div class="p-field">
+      <label for="image">Image</label>
+      <p-fileUpload mode="basic" accept="image/*" chooseLabel="Choose File" (onSelect)="onFileSelect($event)"></p-fileUpload>
+    </div>
+    
+    <button pButton type="button" label="Create" (click)="createMenu()"></button>
+  </div>
+  

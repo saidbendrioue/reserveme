@@ -1,0 +1,11 @@
+<app-header [title]="'My restaurants'"></app-header>
+<p-dataView [value]="restaurants" [paginator]="true" [rows]="10">
+    <ng-template let-item pTemplate="listItem" [@fadeIn]>
+        <div class="dataview-item" (click)="goToMenuList(item)">
+            <img [src]="getImageUrl(item)" alt="{{ item.name }}" />
+            <h3>{{ item.name }}</h3>
+            <p>{{ item.description }}</p>
+        </div>
+    </ng-template>
+</p-dataView>
+<button pButton icon="pi pi-plus" class="p-button-rounded add-item-button" (click)="addRestaurant()"></button>

@@ -1,0 +1,39 @@
+<app-header [title]="'Create restaurant'"></app-header>
+<div class="form-container p-fluid">
+    <div class="p-field">
+        <label for="name">Name</label>
+        <input pInputText id="name" [(ngModel)]="restaurant.name" />
+    </div>
+    <div class="p-field">
+        <label for="description">Description</label>
+        <textarea pInputTextarea id="description" [(ngModel)]="restaurant.description"></textarea>
+    </div>
+    <div class="p-field">
+        <label for="description">Type</label>
+        <p-dropdown [options]="restaurantTypes" id="type" [(ngModel)]="restaurant.type" placeholder="Select a type"></p-dropdown>
+    </div>
+    <div class="p-field">
+        <label for="email">Email</label>
+        <input pInputText id="email" [(ngModel)]="restaurant.email" />
+    </div>
+    <div class="p-field">
+        <label for="phone">Phone</label>
+        <input pInputText id="phone" [(ngModel)]="restaurant.phone" />
+    </div>
+    <div class="p-field">
+        <label for="address">Adresse</label>
+        <input pInputText id="address" [(ngModel)]="restaurant.address" />
+    </div>
+    <div class="p-field">
+        <div *ngIf="imageFile">
+            <img [src]="imageDataUrl" alt="Selected Image" class="p-2" style="width: 400px;"/>
+        </div>
+    </div>
+    <div class="p-field">
+        <label for="image">Image</label>
+        <p-fileUpload mode="basic" accept="image/*" chooseLabel="Choose File"
+            (onSelect)="onFileSelect($event)"></p-fileUpload>
+    </div>
+
+    <button pButton type="button" label="Create" (click)="createRestaurant()"></button>
+</div>

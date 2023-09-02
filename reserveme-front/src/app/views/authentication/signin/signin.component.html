@@ -1,0 +1,10 @@
+<div class="signin-container">
+    <p class="dataview-title">Re Serve Me (RSM)</p>
+    <span class="m-4"></span>
+    <div class="signin-form">
+        <input pInputText placeholder="Email" [(ngModel)]="authenticationRequest.email">
+        <p-password placeholder="Password" [(ngModel)]="authenticationRequest.password"></p-password>
+        <button pButton type="button" label="Signin" (click)="signin()"></button>
+        <button pButton type="button" label="Sign Up" (click)="navigateToSignUp()" class="p-button-success"></button>
+    </div>
+</div>

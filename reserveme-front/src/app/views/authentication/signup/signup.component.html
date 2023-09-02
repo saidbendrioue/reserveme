@@ -1,0 +1,13 @@
+<div class="signup-container">
+    <h1>Sign Up</h1>
+    <div class="signup-form">
+        <input pInputText placeholder="First Name" [(ngModel)]="user.firstName" class="pinput">
+        <input pInputText placeholder="Last Name" [(ngModel)]="user.lastName" class="pinput">
+        <input pInputText placeholder="Email" [(ngModel)]="user.email" class="pinput">
+        <div>
+            <p-password placeholder="Password" [(ngModel)]="user.password" class="pinput"></p-password>
+        </div>
+        <input pPassword placeholder="Confirm Password" [(ngModel)]="confirmPassword" class="pinput">        
+        <button pButton type="button" label="Sign Up" (click)="signup()"></button>
+    </div>
+</div>

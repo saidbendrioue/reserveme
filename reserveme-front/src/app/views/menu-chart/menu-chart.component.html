@@ -1,0 +1,34 @@
+<div class="menu-chart">
+    <img [src]="menu?.imageUrl" alt="restaurant?.name" class="cover-image"/>
+    <div class="d-flex flex-column p-2">
+        <div class="pt-pl-2">
+            <h2><strong>{{restaurant?.name}} Restaurant</strong></h2>
+        </div>
+        <div class="d-flex flex-column m-0">
+            <div class="d-flex m-0">
+                <div class="p-2 m-0"><i class="pi pi-map"></i></div>
+                <small class="text-body-secondary pt-2 m-0">7 rue des Fleurs 37000 Tours</small>
+            </div>
+            <div class="d-flex m-0">
+                <div class="p-2 m-0"><i class="pi pi-clock"></i></div>
+                <small class="text-body-secondary pt-2 m-0">Open 07:00 - 23:00</small>
+            </div>
+        </div>
+        <div class="p-2">
+            <strong>Produits</strong>
+        </div>
+        <p-dataView [value]="menuItems" [paginator]="true" [rows]="10">
+            <ng-template let-item pTemplate="listItem">
+                <div class="d-flex p-2">
+                    <img [src]="getImageUrl(item)" alt="{{ item.dishName }}" class="menu-item-image" />
+                    <div class="d-flex flex-column p-2">
+                        <p class="m-0"><strong>{{item.dishName}}</strong></p>
+                        <small class="text-body-secondary">{{item.description}}</small>
+                        <p><strong>${{item.price}}.00</strong></p>
+                        <!-- <p-rating [(ngModel)]="rating" [readonly]="true" [cancel]="false"></p-rating> -->
+                    </div>
+                </div>
+            </ng-template>
+        </p-dataView>
+    </div>
+</div>
