@@ -11,7 +11,7 @@ import { DashboardComponent } from './views/dashboard/dashboard.component';
 import { HeaderComponent } from './views/dashboard/layout/header.component';
 import { SidebarComponent } from './views/dashboard/layout/sidebar.component';
 import { MenuListComponent } from './views/dashboard/menu/menu-list/menu-list.component';
-import { SharedModule } from './shared.module';
+import { SharedModule } from './shared/shared.module';
 import { MessageService } from 'primeng/api';
 import { RestaurantFormComponent } from './views/dashboard/restaurant/restaurant-form/restaurant-form.component';
 import { RestaurantListComponent } from './views/dashboard/restaurant/restaurant-list/restaurant-list.component';

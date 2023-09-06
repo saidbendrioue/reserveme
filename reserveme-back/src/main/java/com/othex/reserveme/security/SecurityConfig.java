@@ -31,12 +31,11 @@ public class SecurityConfig {
         http.csrf(AbstractHttpConfigurer::disable)
                 .authenticationProvider(authenticationProvider()).addFilterBefore(
                         jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
-                // .authorizeHttpRequests(request ->
-                // request.requestMatchers("/api/auth/**","/api/files/**")
-                // .authorizeHttpRequests(request ->
-                // request.requestMatchers("/api/**").permitAll().anyRequest().authenticated())
-                .authorizeHttpRequests(request -> request.requestMatchers(new AntPathRequestMatcher("/api/**"))
-                        .permitAll().anyRequest().authenticated())
+                .authorizeHttpRequests(
+                        request -> request.requestMatchers(new AntPathRequestMatcher("/api/auth/**")).permitAll()
+                                .requestMatchers(new AntPathRequestMatcher("/api/files/**")).permitAll()
+                                .requestMatchers(new AntPathRequestMatcher("/api/**")).authenticated()
+                                .anyRequest().permitAll())
                 .sessionManagement(manager -> manager.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .headers(header -> header.frameOptions(frameOption -> frameOption.disable()));
         return http.build();
