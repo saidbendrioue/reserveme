@@ -3,14 +3,11 @@
 @import "primeng/resources/primeng.css";
 @import "primeicons/primeicons.css";
 
-body,
-.p-dataview .p-dataview-content,
-.text-body-secondary,
-.p-dataview .p-paginator-bottom,
-.p-paginator .p-paginator-pages .p-paginator-page.p-highlight {
-    background-color: black !important;
-    color: beige !important;
+body {
     font-family: monospace;
+    // background-image: url('assets/images/food-bg.jpg');
+    max-width: 500px;
+    margin: auto;
 }
 
 
@@ -139,4 +136,19 @@ body,
 
 .p-dataview .p-paginator-bottom {
     padding: 0
+}
+
+.p-dataview .p-dataview-content,
+.p-paginator {
+    background: none !important;
+}
+
+.p-paginator .p-paginator-pages .p-paginator-page.p-highlight {
+    background: none !important;
+}
+
+.menu-item-image {
+    width: 100px;
+    height: 90px;
+    border-radius: 10px
 }

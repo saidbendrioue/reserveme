@@ -15,4 +15,5 @@ public class MenuItemDTO {
     private long price;
     private String imageUrl;
     private String menuId;
+    private String categoriy;
 }

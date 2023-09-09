@@ -5,8 +5,8 @@
     <ng-template let-item pTemplate="listItem">
         <div class="dataview-item">
             <div class="d-flex justify-content-between">
-                <h2><strong>{{ item.name }}</strong></h2>
-                <p-button icon="pi pi-angle-down" styleClass="p-button-rounded p-button-secondary p-button-text"
+                <h3 class="m-0">{{ item.name }}</h3>
+                <p-button icon="pi pi-ellipsis-v" styleClass="p-button-rounded p-button-secondary p-button-text"
                     (click)="menu.toggle($event);this.clickedMenuId = item.id;"></p-button>
             </div>
             <img [src]="getImageUrl(item)" alt="{{ item.name }}"  (click)="goToMenuItemList(item)"/>

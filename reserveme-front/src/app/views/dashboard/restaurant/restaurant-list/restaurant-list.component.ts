@@ -33,7 +33,7 @@ export class RestaurantListComponent implements OnInit {
   }
 
   getImageUrl(restaurant: Restaurant): string | undefined {
-    return restaurant.imageUrl ?? "https://source.unsplash.com/400x200/?food?" + restaurant.id;
+    return "https://source.unsplash.com/400x200/?food?" + restaurant.id;
   }
 
 

@@ -21,6 +21,7 @@ import { AnimateModule } from 'primeng/animate';
 import { DropdownModule } from 'primeng/dropdown';
 import { MenuModule } from 'primeng/menu';
 import { TableModule } from 'primeng/table';
+import { BreadcrumbModule } from 'primeng/breadcrumb';
 
 @NgModule({
   declarations: [],
@@ -46,7 +47,8 @@ import { TableModule } from 'primeng/table';
     AnimateModule,
     DropdownModule,
     MenuModule,
-    TableModule
+    TableModule,
+    BreadcrumbModule,
   ],
   exports: [
     CommonModule,
@@ -70,7 +72,8 @@ import { TableModule } from 'primeng/table';
     AnimateModule,
     DropdownModule,
     MenuModule,
-    TableModule
+    TableModule,
+    BreadcrumbModule,
   ]
 })
 export class SharedModule { }

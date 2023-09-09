@@ -1,14 +1,10 @@
 package com.othex.reserveme.entities;
 
-import org.hibernate.annotations.GenericGenerator;
-
 import com.othex.reserveme.entities.commons.AbstractAuditingEntity;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
@@ -22,13 +18,11 @@ import lombok.EqualsAndHashCode;
 @Table(name = "menu_items")
 public class MenuItem extends AbstractAuditingEntity {
 
-    @Id
-    @GeneratedValue(generator = "hash-id-generator")
-    @GenericGenerator(name = "hash-id-generator", strategy = "com.othex.reserveme.entities.commons.HashIdGenerator")
-    private String id;
-
     @Column(name = "dish_name")
     private String dishName;
+
+    @Column(name = "categoriy")
+    private String categoriy;
 
     @Column(name = "description")
     private String description;

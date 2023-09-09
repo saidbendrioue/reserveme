@@ -14,4 +14,5 @@ public class MenuDTO {
     private String description;
     private String imageUrl;
     private String restaurantId;
+    private String templateId;
 }

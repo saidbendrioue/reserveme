@@ -1,5 +1,5 @@
 <div class="menu-chart">
-    <img [src]="'https://source.unsplash.com/400x200/?food'" alt="restaurant?.name" class="cover-image"/>
+    <img [src]="'https://source.unsplash.com/400x200/?food'" alt="restaurant?.name" class="cover-image" />
     <div class="d-flex flex-column p-2">
         <div class="pt-pl-2">
             <h2><strong>{{restaurant?.name}} Restaurant</strong></h2>
@@ -14,21 +14,19 @@
                 <small class="text-body-secondary pt-2 m-0">Open 07:00 - 23:00</small>
             </div>
         </div>
-        <div class="p-2">
-            <strong>Produits</strong>
-        </div>
-        <p-dataView [value]="menuItems" [paginator]="true" [rows]="10">
-            <ng-template let-item pTemplate="listItem">
-                <div class="d-flex p-2">
-                    <img [src]="getImageUrl(item)" alt="{{ item.dishName }}" class="menu-item-image" />
-                    <div class="d-flex flex-column p-2">
-                        <p class="m-0"><strong>{{item.dishName}}</strong></p>
-                        <small class="text-body-secondary">{{item.description}}</small>
-                        <p><strong>${{item.price}}.00</strong></p>
-                        <!-- <p-rating [(ngModel)]="rating" [readonly]="true" [cancel]="false"></p-rating> -->
-                    </div>
+        <div *ngFor="let category of categories">
+            <div class="pt-2">
+                <strong style="font-size: 20px;">{{category}}</strong>
+            </div>
+            <div class="d-flex p-2" *ngFor="let item of getMenuItemsByCategory(category)">
+                <img [src]="getImageUrl(item)" alt="{{ item.dishName }}" class="menu-item-image" />
+                <div class="d-flex flex-column p-2">
+                    <p class="m-0"><strong>{{item.dishName}}</strong></p>
+                    <small class="text-body-secondary">{{item.description}}</small>
+                    <p><strong>${{item.price}}.00</strong></p>
+                    <!-- <p-rating [(ngModel)]="rating" [readonly]="true" [cancel]="false"></p-rating> -->
                 </div>
-            </ng-template>
-        </p-dataView>
+            </div>
+        </div>
     </div>
 </div>

@@ -27,9 +27,9 @@ export class AuthInterceptor implements HttpInterceptor {
                 this.messageService.add({ severity: 'error', summary: 'Error', detail: error?.statusText });
 
                 // Check for 403 error and redirect to signin page
-                if (error.status === 403 || error.status === 0) {
-                    this.router.navigate(['/signin']);
-                }
+                // if (error.status === 403 || error.status === 0) {
+                //     this.router.navigate(['/signin']);
+                // }
 
                 // Continue handling the error
                 return throwError(error);

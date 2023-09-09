@@ -1,5 +1,5 @@
 CREATE TABLE users (
-    user_id VARCHAR(255) NOT NULL,
+    id VARCHAR(255) NOT NULL,
     created_date TIMESTAMP,
     last_modified_date TIMESTAMP,
     email VARCHAR(255) UNIQUE,
@@ -9,13 +9,13 @@ CREATE TABLE users (
     role VARCHAR(255),
     created_by VARCHAR(255),
     last_modified_by VARCHAR(255),
-    PRIMARY KEY (user_id)
+    PRIMARY KEY (id)
 );
 
 -- Inserting data for the users table
 INSERT INTO
     users (
-        user_id,
+        id,
         first_name,
         last_name,
         email,
@@ -55,13 +55,14 @@ CREATE TABLE restaurants (
     last_modified_date TIMESTAMP,
     last_modified_by VARCHAR(255),
     PRIMARY KEY (id),
-    FOREIGN KEY (owner_id) REFERENCES users(user_id)
+    FOREIGN KEY (owner_id) REFERENCES users(id)
 );
 
 CREATE TABLE menus (
     id VARCHAR(255) NOT NULL,
     name VARCHAR(255),
     description TEXT,
+    template_id TEXT,
     image_url VARCHAR(255),
     restaurant_id VARCHAR(255),
     created_date DATE,
@@ -112,6 +113,7 @@ INSERT INTO
         id,
         name,
         description,
+        template_id,
         image_url,
         restaurant_id,
         created_date,
@@ -124,6 +126,7 @@ VALUES
         '0a3760fca29d0807d67c824b875fff05',
         'Menu 1',
         'Description for Menu 1',
+        '1',
         'http://localhost:8080/api/files/0a3760fca29d0807d67c824b875fff05.jpeg',
         '3ac2b39ad528f8c8c5dc77c59abb683d',
         '2023-08-27',

@@ -1,10 +1,14 @@
 <app-header [title]="currentRestaurant?.name + ' > ' + currentMenu.name"></app-header>
 <p-dataView [value]="menuItems" [paginator]="true" [rows]="10">
     <ng-template let-item pTemplate="listItem">
-        <div class="dataview-item">
-            <img [src]="getImageUrl(item)" alt="{{ item.dishName }}" />
-            <h3>{{ item.dishName }}</h3>
-            <p>{{ item.description }}</p>
+        <div class="d-flex p-2">
+            <img [src]="getImageUrl(item)" alt="{{ item.dishName }}" class="menu-item-image" />
+            <div class="d-flex flex-column p-2">
+                <p class="m-0"><strong>{{item.dishName}}</strong></p>
+                <small class="text-body-secondary">{{item.description}}</small>
+                <p><strong>${{item.price}}.00</strong></p>
+                <!-- <p-rating [(ngModel)]="rating" [readonly]="true" [cancel]="false"></p-rating> -->
+            </div>
         </div>
     </ng-template>
 </p-dataView>

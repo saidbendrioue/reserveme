@@ -16,6 +16,8 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
+import static org.springframework.security.config.Customizer.withDefaults;
+
 import lombok.RequiredArgsConstructor;
 
 @Configuration
@@ -37,7 +39,8 @@ public class SecurityConfig {
                                 .requestMatchers(new AntPathRequestMatcher("/api/**")).authenticated()
                                 .anyRequest().permitAll())
                 .sessionManagement(manager -> manager.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .headers(header -> header.frameOptions(frameOption -> frameOption.disable()));
+                .headers(header -> header.frameOptions(frameOption -> frameOption.disable()))
+                .cors(withDefaults());
         return http.build();
     }
 

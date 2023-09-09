@@ -14,7 +14,10 @@ export class CreateMenuComponent implements OnInit {
   imageFile: any;
   restaurantId: string | null | undefined;
   imageDataUrl: any;
-
+  menuTemplates = [
+    { name: 'Products with image', id: '0' },
+    { name: 'Products without image', id: '1' },
+  ]
   constructor(
     private menuService: MenuService,
     private router: Router,

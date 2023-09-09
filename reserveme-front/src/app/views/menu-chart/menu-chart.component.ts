@@ -22,6 +22,8 @@ export class MenuChartComponent implements OnInit {
   menuItems: MenuItem[] = [];
   rating = 4;
 
+  categories: any;
+
   constructor(
     private menuService: MenuService,
     private menuItemService: MenuItemService,
@@ -34,6 +36,7 @@ export class MenuChartComponent implements OnInit {
     this.menuId = this.getMenuId();
     this.getMenuById(this.menuId);
     this.getMenuItemsByMenuId(this.menuId);
+
   }
 
   getMenuById(menuId: string) {
@@ -67,6 +70,7 @@ export class MenuChartComponent implements OnInit {
         map(response => {
           this.menuItems = response;
           this.menuItems.forEach(item => item.price = Math.ceil(Math.random() * 10));
+          this.categories = this.menuItems.map(menuItem => menuItem.categoriy);
         }),
         catchError(error => {
           return [];
@@ -85,11 +89,11 @@ export class MenuChartComponent implements OnInit {
   }
 
   getImageUrl(menuItem: MenuItem): string {
-    if (menuItem.imageUrl) {
-      return `${API_ENDPOINT}/files/${menuItem.imageUrl}`
-    } else {
-      return ("https://source.unsplash.com/400x200/?food?" + menuItem.id)
-    }
+    return ("https://source.unsplash.com/200x200/?food?" + menuItem.id)
+  }
+
+  getMenuItemsByCategory(category: string): MenuItem[] {
+    return this.menuItems.filter(menuItem => menuItem.categoriy === category);
   }
 
 }

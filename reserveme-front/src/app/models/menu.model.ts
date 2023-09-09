@@ -6,6 +6,7 @@ export class Menu {
     description?: string;
     imageUrl?: string;
     restaurantId?: string;
+    templateId?: string;
 }
 
 

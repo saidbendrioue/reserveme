@@ -14,7 +14,7 @@ export class CreateMenuItemComponent implements OnInit {
   imageFile: any;
   menuId: string | null | undefined;
   restaurantId: string | null | undefined;
-
+  categories = ['Burgers', 'Pizzas', 'Tacos', 'Sushi', 'Steakhouses', 'Drinks']
   isCreating: boolean = false;
 
   constructor(
@@ -34,7 +34,9 @@ export class CreateMenuItemComponent implements OnInit {
 
   createMenuItem(): void {
     this.isCreating = true;
-    this.menuItem.menuId = this.menuId;
+    if (this.menuId) {
+      this.menuItem.menuId = this.menuId
+    }
     this.menuItemService.createMenuItem(this.menuItem, this.imageFile)
       .pipe(
         map(response => {

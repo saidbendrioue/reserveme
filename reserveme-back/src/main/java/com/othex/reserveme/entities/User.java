@@ -3,7 +3,6 @@ package com.othex.reserveme.entities;
 import java.util.Collection;
 import java.util.List;
 
-import org.hibernate.annotations.GenericGenerator;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -18,11 +17,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-import jakarta.persistence.Transient;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -31,15 +27,6 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = false)
 @Table(name = "users")
 public class User extends AbstractAuditingEntity implements UserDetails {
-
-	@Transient
-	private static final long serialVersionUID = 4252956952396175047L;
-
-	@Id
-	@Column(name = "user_id")
-	@GeneratedValue(generator = "hash-id-generator")
-	@GenericGenerator(name = "hash-id-generator", strategy = "com.othex.reserveme.entities.commons.HashIdGenerator")
-	private String id;
 
 	private String firstName;
 	private String lastName;

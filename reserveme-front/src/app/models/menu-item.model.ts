@@ -1,10 +1,10 @@
-import { Menu } from "./menu.model";
 
 export class MenuItem {
-    id?: string | undefined | null;
-    dishName?: string | undefined | null;
-    description?: string | undefined | null;
+    id?: string;
+    dishName?: string;
+    description?: string;
     price?: number;
-    imageUrl?: string | undefined | null;
-    menuId?: string | undefined | null;
+    imageUrl?: string;
+    menuId?: string;
+    categoriy?: string;
 }

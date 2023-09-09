@@ -78,10 +78,7 @@ export class MenuListComponent implements OnInit {
   }
 
   getImageUrl(menu: Menu): string {
-    if (menu.imageUrl)
-      return `${menu.imageUrl}`;
-    else
-      return `https://source.unsplash.com/400x200/?food?${menu.imageUrl}`;
+    return `https://source.unsplash.com/400x200/?food?${menu.imageUrl}`;
   }
 
   addMenu() {

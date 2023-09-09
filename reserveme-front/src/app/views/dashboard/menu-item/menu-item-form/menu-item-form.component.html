@@ -8,6 +8,12 @@
     </div>
 
     <div class="p-field">
+      <label for="template">Category</label>
+      <p-dropdown [options]="categories" id="id" [(ngModel)]="menuItem.categoriy"
+        placeholder="Select a category"></p-dropdown>
+    </div>
+
+    <div class="p-field">
       <label for="name">Price</label>
       <p-inputNumber [(ngModel)]="menuItem.price" mode="currency" inputId="currency-france" currency="EUR" locale="fr-FR"> </p-inputNumber>
     </div>

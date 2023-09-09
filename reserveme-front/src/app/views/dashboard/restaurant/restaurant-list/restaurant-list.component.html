@@ -1,6 +1,6 @@
 <app-header [title]="'My restaurants'"></app-header>
 <p-dataView [value]="restaurants" [paginator]="true" [rows]="10">
-    <ng-template let-item pTemplate="listItem" [@fadeIn]>
+    <ng-template let-item pTemplate="listItem">
         <div class="dataview-item" (click)="goToMenuList(item)">
             <img [src]="getImageUrl(item)" alt="{{ item.name }}" />
             <h3>{{ item.name }}</h3>

@@ -4,7 +4,6 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-image: url('../../../../assets/images/food-bg.jpg');
   background-repeat: repeat;
 }
 
@@ -15,6 +14,10 @@
   gap: 1rem;
 
   .p-button {
-    width: 100%;
+    width: 250px;
+  }
+
+  .p-inputtext {
+    width: 250px;
   }
 }

@@ -75,8 +75,7 @@ export class MenuItemListComponent implements OnInit {
   }
 
   getImageUrl(menuItem: MenuItem): string {
-    return ("https://source.unsplash.com/400x200/?food?" + menuItem.id) ?? `${API_ENDPOINT}/files/${menuItem.imageUrl}`;
-    ;
+    return ("https://source.unsplash.com/400x200/?food?" + menuItem.id);
   }
 
   getMenuId() {
